@@ -3,6 +3,9 @@ Community URL configuration.
 """
 
 from django_distill import distill_url
+from django.conf.urls.static import static
+from django.conf import settings
+
 from .views import index as openhub_django_index
 from .models import (
     PortfolioProject,
@@ -61,7 +64,6 @@ urlpatterns = [
         r'openhub/$', openhub_django_index,
         name='community-openhub',
         distill_func=get_index,
-        distill_file='openhub_django.html',
     ),
     distill_url(
         r'openhub/outside_committers/$',
@@ -123,4 +125,4 @@ urlpatterns = [
         name='org-detail',
         distill_func=get_organization,
     ),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

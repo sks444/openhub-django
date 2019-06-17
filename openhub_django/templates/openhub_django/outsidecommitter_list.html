@@ -1,18 +1,41 @@
-{% extends "openhub_django/base.html" %}
+{% extends "base.html" %}
+{% load staticfiles %}
+
 {% block title %}
-<title>Outside Committer List</title>
+ OpenHub Django | Outside Committer List
 {% endblock %}
-{% block content %}
-<h1>Outside Committer List</h1>
-{% if outside_committer_list %}
-<ul>
-  {% for outsidecommitter in outside_committer_list %}
-  <li>
-    <a href="{{ outsidecommitter.get_absolute_url }}">{{ outsidecommitter.name }}</a>
-  </li>
-  {% endfor %}{# for outsidecommitter in outside_committer_list #}
-</ul>
-{% else %}
-<p>There are no outside committers.</p>
-{% endif %}{# if outside_committer_list #}
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block add_js_files %}
+  <script src="{% static 'js/openhub_django.js' %}"></script>
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <div class="input-group row">
+      <div class="col s12 m6">
+        <h1 class="about-page">Outside Committer List</h1>
+      </div>
+      <div class="col s12 m6">
+        <h1>
+        <input type="text" id="search-list" class="form-control" aria-label="Default"
+               aria-describedby="inputGroup-sizing-default" placeholder="Search list">
+        </h1>
+      </div>
+    </div>
+    {% if outside_committer_list %}
+    <div class="collection">
+      {% for outsidecommitter in outside_committer_list %}
+      <a href="{{ outsidecommitter.get_absolute_url }}" class="collection-item" id="{{ outsidecommitter.name }}">
+        {{ outsidecommitter.name }}
+      </a>
+      {% endfor %}{# for outsidecommitter in outside_committer_list #}
+    </div>
+    {% else %}
+    <span>There are no outside committers <i class="fa fa-frown-o" aria-hidden="true"></i></span>
+    {% endif %}{# if outside_committer_list #}
+  </div>
 {% endblock %}

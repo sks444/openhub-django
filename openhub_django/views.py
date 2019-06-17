@@ -18,7 +18,7 @@ def index(request):
         'outsideprojects': 'outside_projects',
         'organization': 'organization',
         }
-    return render(request, 'openhub_django.html', args)
+    return render(request, 'openhub_django/index.html', args)
 
 
 class PortfolioProjectListView(generic.ListView):

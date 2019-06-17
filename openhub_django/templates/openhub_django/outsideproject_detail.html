@@ -1,14 +1,23 @@
-{% extends "openhub_django/base.html" %}
+{% extends "base.html" %}
+{% load staticfiles %}
+
 {% block title %}
-<title>{{ outsideproject.name }}</title>
+  OpenHub Django | {{ outsideproject.name }}
 {% endblock %}
-{% block content %}
-<h1>Details of: {{ outsideproject.name }}</h1>
-<p><strong>name:</strong>{{ outsideproject.name }}</p>
-<p><strong>activity:</strong> {{ outsideproject.activity }}</p>
-<p><strong>i_use_this:</strong> {{ outsideproject.i_use_this }}</p>
-<p><strong>community_rating:</strong> {{ outsideproject.community_rating }}</p>
-<p><strong>affiliates_contributing:</strong>{{ outsideproject.affiliates_contributing }}</p>
-<p><strong>commits_by_current_affiliates:</strong>{{ outsideproject.commits_by_current_affiliates }}</p>
-<p><strong>org:</strong>{{ outsideproject.org }}</p>
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <h1>{{ outsideproject.name }} project details</h1>
+    <p><strong>Name:</strong> {{ outsideproject.name }}</p>
+    <p><strong>Activity:</strong> {{ outsideproject.activity }}</p>
+    <p><strong>How much I use this?</strong> {{ outsideproject.i_use_this }}</p>
+    <p><strong>Community rating:</strong> {{ outsideproject.community_rating }}</p>
+    <p><strong>Affiliates contributing:</strong> {{ outsideproject.affiliates_contributing }}</p>
+    <p><strong>Commits by current affiliates:</strong> {{ outsideproject.commits_by_current_affiliates }}</p>
+    <p><strong>Organization:</strong> {{ outsideproject.org }}</p>
+  </div>
 {% endblock %}
