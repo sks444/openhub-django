@@ -1,18 +1,41 @@
-{% extends "openhub_django/base.html" %}
+{% extends "base.html" %}
+{% load staticfiles %}
+
 {% block title %}
-<title>Outside Project List</title>
+  OpenHub Django | Outside Projects List
 {% endblock %}
-{% block content %}
-<h1>Outside Project List</h1>
-{% if outside_project_list %}
-<ul>
-  {% for outsideproject in outside_project_list %}
-  <li>
-    <a href="{{ outsideproject.get_absolute_url }}">{{ outsideproject.name }}</a>
-  </li>
-  {% endfor %}{# for outsideproject in outside_project_list #}
-</ul>
-{% else %}
-<p>There are no outside projects.</p>
-{% endif %}{# if outside_project_list #}
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block add_js_files %}
+  <script src="{% static 'js/openhub_django.js' %}"></script>
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <div class="input-group row">
+      <div class="col s12 m6">
+        <h1 class="about-page">Outside Projects List</h1>
+      </div>
+      <div class="col s12 m6">
+        <h1>
+        <input type="text" id="search-list" class="form-control" aria-label="Default"
+               aria-describedby="inputGroup-sizing-default" placeholder="Search list">
+        </h1>
+      </div>
+    </div>
+    {% if outside_project_list %}
+    <div class="collection">
+      {% for outsideproject in outside_project_list %}
+      <a href="{{ outsideproject.get_absolute_url }}" class="collection-item" id="{{ outsideproject.name }}">
+        {{ outsideproject.name }}
+      </a>
+      {% endfor %}{# for outsideproject in outside_project_list #}
+    </div>
+    {% else %}
+    <p>There are no outside projects.</p>
+    {% endif %}{# if outside_project_list #}
+  </div>
 {% endblock %}

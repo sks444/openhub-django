@@ -1,14 +1,23 @@
-{% extends "openhub_django/base.html" %}
+{% extends "base.html" %}
+{% load staticfiles %}
+
 {% block title %}
-<title>{{ outsidecommitter.name }}</title>
+  OpenHub Django | {{ outsidecommitter.name }}
 {% endblock %}
-{% block content %}
-<h1>Details of: {{ outsidecommitter.name }}</h1>
-<p><strong>name:</strong>{{ outsidecommitter.name }}</p>
-<p><strong>org:</strong> {{ outsidecommitter.org }}</p>
-<p><strong>kudos:</strong> {{ outsidecommitter.kudos }}</p>
-<p><strong>level:</strong> {{ outsidecommitter.level }}</p>
-<p><strong>affiliated with:</strong>{{ outsidecommitter.affiliated_with }}</p>
-<p><strong>projects:</strong>{{ outsidecommitter.contributions_to_portfolio_projects.projects }}</p>
-<p><strong>twelve_mo_commits:</strong>{{ outsidecommitter.contributions_to_portfolio_projects.twelve_mo_commits }}</p>
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <h1>Committer {{ outsidecommitter.name }} Details</h1>
+    <p><strong>Name:</strong> {{ outsidecommitter.name }}</p>
+    <p><strong>Org:</strong> {{ outsidecommitter.org }}</p>
+    <p><strong>Kudos:</strong> {{ outsidecommitter.kudos }}</p>
+    <p><strong>Level:</strong> {{ outsidecommitter.level }}</p>
+    <p><strong>Affiliated with:</strong> {{ outsidecommitter.affiliated_with }}</p>
+    <p><strong>Projects:</strong> {{ outsidecommitter.contributions_to_portfolio_projects.projects }}</p>
+    <p><strong>Twelve months commits:</strong> {{ outsidecommitter.contributions_to_portfolio_projects.twelve_mo_commits }}</p>
+  </div>
 {% endblock %}

@@ -12,12 +12,15 @@ USE_TZ = True
 SECRET_KEY = "-#t-d1kx#a_l#5dt6qxpn2w)i8qfbn=-kth6g3m@xl=wa!!1uh"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR, 'openhub_django/static/')
 
 INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sites",
+    "django.contrib.staticfiles",
     "openhub_django",
+    "django_distill",
 ]
 
 DATABASES = {
@@ -52,3 +55,8 @@ if django.VERSION >= (1, 10):
     MIDDLEWARE = ()
 else:
     MIDDLEWARE_CLASSES = ()
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR, ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'openhub_django/media/')

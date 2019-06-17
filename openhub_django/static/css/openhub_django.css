@@ -1,0 +1,58 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.about-page {
+  padding-right: 1em;
+}
+
+.main-content {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: large;
+  min-height: 50%;
+}
+
+
+.main-content p{
+  font-size: large;
+}
+
+.main-content h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.main-content #search-list {
+  border-radius: 100px;
+  background-color: transparent;
+  border: 1px black solid;
+  padding-left: 10px;
+}
+
+.main-content #search-list::placeholder {
+  color: grey;
+  font-weight: bold;
+}
+
+.main-content .collection{
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.main-content .collection-item {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.main-content .input-group.row {
+  margin-bottom: 0;
+}
+
+.main-content .input-group h1 {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}
