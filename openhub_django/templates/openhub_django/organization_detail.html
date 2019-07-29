@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  OpenHub-Django | {{ organization.name }}
+{% endblock %}
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <h1><img src="{{ organization.small_logo_url }}" alt="{{ organization.name }}"> {{ organization.name }} organization summary</h1>
+    <p><strong>Organization name:</strong> <a href="{{ organization.html_url }}" target="_blank">{{ organization.name }}</a></p>
+    <p><strong>Homepage:</strong> <a href="{{ organization.homepage_url }}">{{ organization.homepage_url }}</a></p>
+    <p><strong>Description:</strong> {{ organization.description }}</p>
+    <p><strong>URL Name:</strong> {{ organization.url_name }}</p>
+    <p><strong>Organization type:</strong> {{ organization.org_type }}</p>
+    <p>
+      <strong>Logos:</strong>
+      <a href="{{ organization.medium_logo_url }}" target="_blank">Medium</a>
+      <a href="{{ organization.small_logo_url }}" target="_blank">Small</a>
+    </p>
+    <p><strong>Outside committers:</strong> {{ organization.infographic_details.outside_committers }}</p>
+    <p><strong>Outside committers commits:</strong> {{ organization.infographic_details.outside_committers_commits }}</p>
+    <p><strong>Projects having outside commits:</strong> {{ organization.infographic_details.projects_having_outside_commits }}</p>
+    <p><strong>Portfolio projects:</strong> {{ organization.infographic_details.portfolio_projects }}</p>
+    <p><strong>Affiliators:</strong> {{ organization.infographic_details.affiliators }}</p>
+    <p><strong>Affiliators committing to portfolio projects:</strong> {{ organization.infographic_details.affiliators_committing_to_portfolio_projects }}</p>
+    <p><strong>Affiliator commits to portfolio projects:</strong> {{ organization.infographic_details.affiliator_commits_to_portfolio_projects }}</p>
+    <p><strong>Outside projects:</strong> {{ organization.infographic_details.affiliators_commiting_projects.outside_projects }}</p>
+    <p><strong>Outside projects commits:</strong> {{ organization.infographic_details.outside_projects_commits }}</p>
+    <p><strong>Affiliators committing to outside projects:</strong> {{ organization.infographic_details.affiliators_committing_to_outside_projects }}</p>
+    <p><strong>Created at:</strong> {{ organization.created_at }}</p>
+    <p><strong>Last updated at:</strong> {{ organization.updated_at }}</p>
+  </div>
+{% endblock %}

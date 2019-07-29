@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+  OpenHub Django | Affiliated Contributors List
+{% endblock %}
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block add_js_files %}
+  <script src="{% static 'js/openhub_django.js' %}"></script>
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <div class="input-group row">
+      <div class="col s12 m6">
+        <h1 class="about-page">Affiliated Contributors List</h1>
+      </div>
+      <div class="col s12 m6">
+        <h1>
+        <input type="text" id="search-list" class="form-control" aria-label="Default"
+               aria-describedby="inputGroup-sizing-default" placeholder="Search list">
+        </h1>
+      </div>
+    </div>
+    {% if affiliated_committer_list %}
+    <div class="collection">
+      {% for affiliatedcommitter in affiliated_committer_list %}
+      <a href="{{ affiliatedcommitter.get_absolute_url }}" class="collection-item" id="{{ affiliatedcommitter.name }}">
+        {{ affiliatedcommitter.name }}
+      </a>
+      {% endfor %}{# for affiliated_committer in affiliated_committer_list #}
+    </div>
+    {% else %}
+    <span>There are no contributors <i class="fa fa-frown-o" aria-hidden="true"></i></span>
+    {% endif %}{# if affiliated_committer_list #}
+  </div>
+{% endblock %}

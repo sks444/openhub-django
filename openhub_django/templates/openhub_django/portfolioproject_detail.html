@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+  OpenHub Django | {{ portfolioproject.name }}
+{% endblock %}
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <h1>{{ portfolioproject.name }} project details</h1>
+    <p><strong>Name:</strong> {{ portfolioproject.name }}</p>
+    <p><strong>Activity:</strong> {{ portfolioproject.activity }}</p>
+    <p><strong>How much I use this? :</strong> {{ portfolioproject.i_use_this }}</p>
+    <p><strong>Primary language:</strong> {{ portfolioproject.primary_language }}</p>
+    <p><strong>Community rating:</strong> {{ portfolioproject.community_rating }}</p>
+    <p><strong>Organization:</strong> {{ portfolioproject.org }}</p>
+    <p><strong>Commits:</strong> {{ portfolioproject.twelve_mo_activity_and_year_on_year_change.commits }}</p>
+    <p><strong>Change in commits:</strong> {{ portfolioproject.twelve_mo_activity_and_year_on_year_change.change_in_commits }}</p>
+    <p><strong>Percentage change in commits:</strong> {{ portfolioproject.twelve_mo_activity_and_year_on_year_change.percentage_change_in_commits }}</p>
+    <p><strong>Contributors:</strong> {{ portfolioproject.twelve_mo_activity_and_year_on_year_change.contributors }}</p>
+    <p><strong>Change in contributors:</strong> {{ portfolioproject.twelve_mo_activity_and_year_on_year_change.change_in_contributors }}</p>
+    <p><strong>%age change in committers:</strong> {{ portfolioproject.twelve_mo_activity_and_year_on_year_change.percentage_change_in_committers }}</p>
+  </div>
+{% endblock %}

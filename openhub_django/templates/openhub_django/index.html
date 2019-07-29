@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  OpenHub-Django | User Models
+{% endblock %}
+
+{% block add_css_files %}
+  <link rel="stylesheet" href="{% static 'css/openhub_django.css' %}">
+{% endblock %}
+
+{% block main-content %}
+  <div class="container main-content">
+    <h1>Your OpenHub app models and its imported data</h1>
+    <div class="collection">
+      <a href="{% url 'portfolioprojects' %}" class="collection-item">Portfolio Projects</a>
+      <a href="{% url 'outsideprojects' %}" class="collection-item">Outside Projects</a>
+      <a href="{% url 'affiliatedcommitters' %}" class="collection-item">Affiliated Committers</a>
+      <a href="{% url 'outsidecommitters' %}" class="collection-item">Outside Committers</a>
+      <a href="{% url 'organization' %}" class="collection-item">Organizations</a>
+    </div>
+  </div>
+{% endblock %}
