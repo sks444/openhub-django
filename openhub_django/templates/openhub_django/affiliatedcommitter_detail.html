@@ -10,13 +10,15 @@
 {% endblock %}
 
 {% block main-content %}
-  <h1>Committer {{ affiliatedcommitter.name }} details</h1>
-  <p><strong>Name:</strong> {{ affiliatedcommitter.name }}</p>
-  <p><strong>Organization:</strong> {{ affiliatedcommitter.org }}</p>
-  <p><strong>Kudos:</strong> {{ affiliatedcommitter.kudos }}</p>
-  <p><strong>Level:</strong> {{ affiliatedcommitter.level }}</p>
-  <p><strong>Most commits project:</strong> {{ affiliatedcommitter.most_commits.project }}</p>
-  <p><strong>Most commits date:</strong> {{ affiliatedcommitter.most_commits.date }}</p>
-  <p><strong>Most recent commits project:</strong> {{ affiliatedcommitter.most_recent_commit.project }}</p>
-  <p><strong>Most recent commits data:</strong> {{ affiliatedcommitter.most_recent_commit.date }}</p>
+  <div class="container main-content object-details">
+    <h1>Committer {{ affiliatedcommitter.name }} details</h1>
+    <p><strong>Name:</strong> {{ affiliatedcommitter.name }}</p>
+    <p><strong>Organization:</strong> {{ affiliatedcommitter.org }}</p>
+    <p><strong>Kudos:</strong> {{ affiliatedcommitter.kudos }}</p>
+    <p><strong>Level:</strong> {{ affiliatedcommitter.level }}</p>
+    <p><strong>Most commits project:</strong> {{ affiliatedcommitter.most_commits.project }}</p>
+    <p><strong>Most commits date:</strong> {{ affiliatedcommitter.most_commits.date }}</p>
+    <p><strong>Most recent commits project:</strong> {{ affiliatedcommitter.most_recent_commit.project }}</p>
+    <p><strong>Most recent commits data:</strong> {{ affiliatedcommitter.most_recent_commit.date }}</p>
+  </div>
 {% endblock %}

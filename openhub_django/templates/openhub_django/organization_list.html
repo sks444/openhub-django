@@ -29,9 +29,10 @@
     {% if organization_list %}
     <div class="collection">
       {% for organization in organization_list %}
-      <a href="{{ organization.get_absolute_url }}" class="collection-item" id="{{ organization.name }}">
+      <a href="{{ organization.get_absolute_url }}"
+         class="collection-item apply-flex flex-row-direction" id="{{ organization.name }}">
         <img src="{{ organization.small_logo_url }}" alt="{{ organization.name }}"/>
-        {{ organization.name }}
+        <span style="padding: 5px;">{{ organization.name }}</span>
       </a>
       {% endfor %}{# for organization in organization_list #}
     </div>

@@ -2,9 +2,16 @@ html, body {
   height: 100%;
   margin: 0;
 }
-
 .about-page {
   padding-right: 1em;
+}
+
+.collection a.collection-item.apply-flex  {
+  display: flex;
+}
+
+.flex-row-direction {
+  flex-direction: row;
 }
 
 .main-content {
@@ -51,6 +58,15 @@ html, body {
 
 .main-content .input-group h1 {
   margin-bottom: 0;
+}
+
+.object-details {
+  box-shadow: 0 0 10px 1px black;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 0 darkgray solid;
+  background: transparent;
+  margin-top: 20px;
 }
 
 strong {
